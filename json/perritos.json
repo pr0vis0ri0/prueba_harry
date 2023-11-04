@@ -1,0 +1,26 @@
+
+{
+    "perritos" : [
+        {
+            "id": 1,
+            "nombre": "Fido",
+            "raza": "Labrador Retriever",
+            "edad": 3,
+            "descripcion": "Fido es un perro muy juguetón y le encanta correr en el parque."
+        },
+        {
+            "id": 2,
+            "nombre": "Luna",
+            "raza": "Golden Retriever",
+            "edad": 5,
+            "descripcion": "Luna es una perrita muy cariñosa y le encanta estar cerca de su familia."
+        },
+        {
+            "id": 3,
+            "nombre": "Rocky",
+            "raza": "Bulldog",
+            "edad": 2,
+            "descripcion": "Rocky es un perro muy valiente y le encanta proteger a su familia."
+        }
+    ]
+}
