@@ -18,16 +18,117 @@
       </ion-button>
     </ion-label>
   </ion-item>
-  <ion-list padding>
+
+  <ion-grid class="ion-padding-horizontal">
+    <ion-row>
+      <ion-col size="1"><strong>ID</strong></ion-col>
+      <ion-col><strong>Nombre</strong></ion-col>
+      <ion-col><strong>Edad</strong></ion-col>
+      <ion-col><strong>Raza</strong></ion-col>
+      <ion-col size="3"><strong>Acción</strong></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let p of perritos">
+      <ion-col size="1">{{ p.id }}</ion-col>
+      <ion-col>{{ p.nombre }}</ion-col>
+      <ion-col>{{ p.edad }}</ion-col>
+      <ion-col>{{ p.raza }}</ion-col>
+      <ion-col size="3" style="display: flex; justify-content: space-between;">
+        <ion-icon name="eye" color="primary" size="small" style="margin-right: 5px;">
+          <ion-button></ion-button>
+        </ion-icon>
+        <ion-icon name="create" color="tertiary" size="small" style="margin-right: 5px;">
+          <ion-button></ion-button>
+        </ion-icon>
+        <ion-icon name="trash" color="danger" size="small">
+          <ion-button></ion-button>
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button id="open-modal" expand="block">Abrir Modal</ion-button>
+  <ion-modal #miModal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Prueba Modal</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <!-- Aquí comienza el formulario -->
+        Haz los inputs para perrito
+        <ion-item class="ion-padding-horizontal">
+          <ion-label position="floating">ID</ion-label>
+          <ion-input type="text" [(ngModel)]="perrito.id"></ion-input>
+        </ion-item>
+        <ion-item class="ion-padding-horizontal">
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="perrito.nombre"></ion-input>
+        </ion-item>
+        <ion-item class="ion-padding-horizontal">
+          <ion-label position="floating">Edad</ion-label>
+          <ion-input type="number" [(ngModel)]="perrito.edad"></ion-input>
+        </ion-item>
+        <ion-item class="ion-padding-horizontal">
+          <ion-label position="floating">Raza</ion-label>
+          <ion-input type="text" [(ngModel)]="perrito.raza"></ion-input>
+        </ion-item>
+        <ion-item class="ion-padding-horizontal">
+          <ion-label position="floating">Descripción</ion-label>
+          <ion-input type="text" [(ngModel)]="perrito.descripcion"></ion-input>
+        </ion-item>
+        <!-- Aquí termina el formulario -->
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-button id="modify-modal" expand="block">Abrir Modal</ion-button>
+  <ion-modal #miModal2 trigger="modify-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Prueba Modal</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input
+            label="Enter your name"
+            labelPlacement="stacked"
+            type="text"
+            placeholder="Your name"
+            [(ngModel)]="name"
+          ></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <!-- <ion-list padding>
     <ion-item *ngFor="let p of perritos">
       <ion-label>{{p.nombre}}</ion-label>
-      <ion-button>
-        <ion-icon name="create-outline"></ion-icon>
-        Edit
-      </ion-button>
+      <ion-icon name="eye" color="primary" size="small" style="margin-right: 5px;">
+        <ion-button></ion-button>
+      </ion-icon>
+      <ion-icon name="create" color="tertiary" size="small" style="margin-right: 5px;">
+        <ion-button></ion-button>
+      </ion-icon>
+      <ion-icon name="trash" color="danger" size="small">
+        <ion-button></ion-button>
+      </ion-icon>
       <br/>
-      <ion-button>Detail</ion-button><br/>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 </ion-content>

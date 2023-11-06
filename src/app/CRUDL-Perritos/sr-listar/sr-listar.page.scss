@@ -1,0 +1,9 @@
+ion-row {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 8px; /* Cambia el color y el grosor de la línea como prefieras */
+  }
+  
+  /* Para evitar una línea al final del último row, puedes usar :not() con :last-of-type */
+  ion-row:not(:last-of-type) {
+    border-bottom: 1px solid #ccc;
+  }
